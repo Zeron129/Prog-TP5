@@ -117,6 +117,9 @@
   <ItemGroup>
     <ClCompile Include="Ejer-4.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="datos.dat" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

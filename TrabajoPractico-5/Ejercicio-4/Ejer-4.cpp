@@ -2,30 +2,28 @@
 #include<fstream>
 using namespace std;
 
-struct tiempoRegistro {
+struct tipoRegistro {
 	char nombre[30];
 	int edad;
 	float puntaje;
 };
 
 int main(void) {
-	tiempoRegistro rec;
+	tipoRegistro rec;				//como lo abro 
 	ofstream fsalida("datos.dat", ios::out | ios::binary);
-	strcpy(rec.nombre, "Jose Luis");
+	strcpy_s(rec.nombre, "Jose Luis");
 	rec.edad = 32;
 	rec.puntaje = 10000;
-	fsalida.write((char*)&rec, sizeof(tiempoRegistro));
+	fsalida.write((char*)&rec, sizeof(tipoRegistro));
 	cout << "Grabando Datos" << endl;
 	fsalida.close();
 
 	ifstream fentrada("..\\Ejercicio-4\\datos.dat, ios::in | ios::binary");
-	if (fentrada.good()) {
-		fentrada.read()
-	}
-
-
-
-
+	fentrada.read((char*)&rec, sizeof(tipoRegistro));
+	cout << "Nombre: " << rec.nombre << endl;
+	cout << "Edad: " << rec.edad << endl;
+	cout << "Puntaje: " << rec.puntaje << endl;
+	fentrada.close();
 
 	cin.get();
 	return 0;
